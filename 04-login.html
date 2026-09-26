@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="refresh"
+content="0; url=04-login.html">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, Helvetica, sans-serif;
+    }
+    body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            background: #08b8d0;
+            font-family: Arial, sans-serif;
+            padding-top: 100px;
+        }
+
+        #typing {
+            font-size: 35px;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+            margin-bottom: 50px;
+            border-right: 3px solid white;
+            padding-right: 5px;
+        }
+
+    body{
+      background:linear-gradient(135deg,#4facfe,#00f2fe);
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+    }
+    header {
+      background: #2196f3;
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .login-box{
+      background:rgb(255, 255, 255);
+      padding:30px;
+      width:320px;
+      border-radius:15px;
+      box-shadow:0 8px 25px rgba(0,0,0,.2);
+    }
+
+    .login-box h2{
+      text-align:center;
+      margin-bottom:25px;
+      margin-top: 0;
+      color:#040303;
+    }
+
+    input{
+      width:100%;
+      padding:12px;
+      margin:10px 0;
+      margin-bottom: 15px;
+      border:1px solid #aaa;
+      border-radius:8px;
+      font-size:14px;
+    }
+
+    button{
+      width:100%;
+      padding:12px;
+      background:#2196f3;
+      color:white;
+      border:none;
+      border-radius:8px;
+      font-size:16px;
+      cursor:pointer;
+      transition:.3s;
+    }
+
+    button:hover{
+      background:#1976d2;
+    }
+
+    #pesan{
+      margin-top:15px;
+      text-align:center;
+      font-weight:bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="typing"></div>
+
+    <script>
+        const text = "Hallo Selamat Datang di Profile Lufthi Silakan Login Terlebih Dahulu !!!";
+        let i = 0;
+
+        function typing() {
+            if (i < text.length) {
+                document.getElementById("typing").innerHTML += text.charAt(i);
+                i++;
+                setTimeout(typing, 70);
+            }
+        }
+
+        typing();
+    </script>
+
+
+  <div class="login-box">
+    <h2>LOGIN</h2>
+
+    <input type="text" id="username" placeholder="Masukkan Username">
+    <input type="password" id="password" placeholder="Masukkan Password">
+
+    <button onclick="login()">Masuk</button>
+
+    <p id="pesan"></p>
+  </div>
+
+  <script>
+    function login(){
+
+      const user = document.getElementById("username").value;
+      const pass = document.getElementById("password").value;
+      const pesan = document.getElementById("pesan");
+
+      // Username dan password
+      const usernameBenar = "lufthi";
+      const passwordBenar = "2712";
+
+      if(user === usernameBenar && pass === passwordBenar){
+        pesan.style.color = "green";
+        pesan.innerHTML = "Login berhasil!";
+
+        // pindah halaman
+        setTimeout(()=>{
+          window.location.href= "01-porto.html";
+        },2000);
+
+      }else{
+        pesan.style.color = "red";
+        pesan.innerHTML = "Username atau Password salah!";
+      }
+    }
+  </script>
+
+</body>
+</html>
